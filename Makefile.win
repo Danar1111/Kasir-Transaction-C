@@ -1,0 +1,46 @@
+# Project: AdaMart
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o menuKasir.o decoration.o source.o masterBarang.o laporanKeuangan.o historyTransaksi.o
+LINKOBJ  = main.o menuKasir.o decoration.o source.o masterBarang.o laporanKeuangan.o historyTransaksi.o
+LIBS     = -L"E:/PROGRAM/Dev-Cpp/MinGW64/lib" -L"E:/PROGRAM/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"E:/PROGRAM/Dev-Cpp/MinGW64/include" -I"E:/PROGRAM/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/PROGRAM/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/PROGRAM/Dev-Cpp/MinGW64/include" -I"E:/PROGRAM/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/PROGRAM/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/PROGRAM/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = AdaMart.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+menuKasir.o: menuKasir.c
+	$(CC) -c menuKasir.c -o menuKasir.o $(CFLAGS)
+
+decoration.o: decoration.c
+	$(CC) -c decoration.c -o decoration.o $(CFLAGS)
+
+source.o: source.c
+	$(CC) -c source.c -o source.o $(CFLAGS)
+
+masterBarang.o: masterBarang.c
+	$(CC) -c masterBarang.c -o masterBarang.o $(CFLAGS)
+
+laporanKeuangan.o: laporanKeuangan.c
+	$(CC) -c laporanKeuangan.c -o laporanKeuangan.o $(CFLAGS)
+
+historyTransaksi.o: historyTransaksi.c
+	$(CC) -c historyTransaksi.c -o historyTransaksi.o $(CFLAGS)
